@@ -1,12 +1,19 @@
 
-.chat-now {
-    border: 1px solid black;
-    height: 600px;
+ad-slide-panel {
     width: 300px;
+    overflow: hidden;
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+.chat-now {
+    max-width: 300px;
+    height: 600px;
     position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
+    box-sizing: border-box;
 
     &__hdr {
         height: 60px;
@@ -21,6 +28,10 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+    }
+    img {
+        overflow: hidden;
+        margin-left: -2px;
     }
 }
 
@@ -159,4 +170,14 @@
 .chat-box--purple + .chat-box--grey,
 .chat-box--grey + .chat-box--purple {
     margin-top: 10px;
+}
+
+.chat-area {
+    border: none;
+    overflow: auto;
+    outline: none;
+    box-shadow: none;
+    resize: none; 
+    font-size: 16px;
+    color: #333333;
 }

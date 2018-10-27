@@ -1,45 +1,48 @@
-<div class="chat-now" *ngIf="!isChatNow">
-  <img src="assets/img/bitmap.jpg" alt="Banner" class="bitmap">
-  <div class="chat-now__hdr">
-    <img src="assets/img/logo.png" alt="Cleartrip" class="logo">
-  </div>
-  <div class="chat-now__cnt">
-    <div class="hi-chat">
-      <p>
-        Hi!<br>
-        Chat with me about <b>your next vacation.</b>
-      </p>
-    </div>
-    <div class="space"></div>
-    <div class="bg-mask">
-      <p contenteditable="true" [textContent]="model" 
-        (input)="model=$event.target.textContent">
-      </p>
-      <button class="bg-mask__btn" (click)="chatNow()">Chat Now</button>
-    </div>
-  </div>
-</div> 
-
-<div class="chat-now" *ngIf="isChatNow">
-  <div class="chat-now__hdr">
-    <img src="assets/img/logo.png" alt="Cleartrip" class="logo">
-  </div>
-  <div class="chat-now__cnt">
-    <div class="chat-in">
-      <div class="chat-in__cnt">
-        <div class="chat-box chat-box--purple">{{model}}</div>
-        <div class="chat-box chat-box--grey nbr">
-          Hi there! 👋🏼
-        </div>
-        <div class="chat-box chat-box--grey ntr">
-          I can help you with information about loans and apply for a loan on your behalf.
-        </div>
-        <div class="chat-box chat-box--grey" *ngFor="let msg of chatList">{{msg}}</div>
+<ad-slide-panel [activePane]="isChatNow ? 'right' : 'left'">
+  <div leftPane>
+    <div class="chat-now">
+      <img src="assets/img/bitmap.jpg" alt="Banner" class="bitmap">
+      <div class="chat-now__hdr">
+        <img src="assets/img/logo.png" alt="Cleartrip" class="logo">
       </div>
-      <div class="chat-in__text">
-        <input type="text" [(ngModel)]="newMsg" placeholder="Type a message">
-        <img src="assets/img/caret-send.png" alt="Send" (click)="sendNew()">
+      <div class="chat-now__cnt">
+        <div class="hi-chat">
+          <p>
+            Hi!<br>
+            Chat with me about <b>your next vacation.</b>
+          </p>
+        </div>
+        <div class="space"></div>
+        <div class="bg-mask">
+          <textarea name="chatarea" [(ngModel)]="model" [placeholder]="placeholder" class="chat-area" cols="30" rows="10"></textarea>
+          <button class="bg-mask__btn" (click)="chatNow()">Chat Now</button>
+        </div>
+      </div>
+    </div> 
+  </div>
+  <div rightPane>
+    <div class="chat-now">
+      <div class="chat-now__hdr">
+        <img src="assets/img/logo.png" alt="Cleartrip" class="logo">
+      </div>
+      <div class="chat-now__cnt">
+        <div class="chat-in">
+          <div class="chat-in__cnt">
+            <div class="chat-box chat-box--purple">{{model}}</div>
+            <div class="chat-box chat-box--grey nbr">
+              Hi there! 👋🏼
+            </div>
+            <div class="chat-box chat-box--grey ntr">
+              I can help you with information about loans and apply for a loan on your behalf.
+            </div>
+            <div class="chat-box chat-box--grey" *ngFor="let msg of chatList">{{msg}}</div>
+          </div>
+          <div class="chat-in__text">
+            <input type="text" [(ngModel)]="newMsg" placeholder="Type a message">
+            <img src="assets/img/caret-send.png" alt="Send" (click)="sendNew()">
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</ad-slide-panel>
