@@ -4,9 +4,9 @@ import { ChatComponent } from './chat/chat.component';
 import { AdsComponent } from './ads/ads.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'chat', pathMatch: 'full' },
+  { path: '', redirectTo: 'ads', pathMatch: 'full' },
   { path: 'chat', component: ChatComponent },
-  { path: 'ads', component: AdsComponent }
+  { path: 'ads/:addName', component: AdsComponent }
 ];
 
 @NgModule({

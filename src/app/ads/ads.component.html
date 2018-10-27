@@ -1,3 +1,21 @@
-<p>
-  ads works!
-</p>
+<div class="ads">
+  <img src="assets/img/ads/bg-mask.jpg" class="banner" alt="Banner">
+  <div class="ads__hdr">
+    <div class="logo">
+      <img src="assets/img/ads/logo.png" alt="Joyalukas">
+    </div>
+  </div>
+  <div class="ads__cnt" *ngIf="addName=='main'">
+    <h3 [innerHTML]="activeAdd.title"></h3>
+    <img [src]="activeAdd.img.imgUrl" [alt]="activeAdd.img.alt">
+  </div>
+  <div class="ads__cnt" *ngIf="addName!='main'">
+    <div class="menu">
+      <p>{{activeAdd.p}}</p>
+      <h3>{{activeAdd.h3}}</h3>
+      <div class="ads-btn maroon" 
+        *ngFor="let btn of activeAdd.buttonList">{{btn}}
+      </div>
+    </div>
+  </div>
+</div>
